@@ -6,9 +6,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HealthController {
 	
+	@GetMapping("/")
+	public String home() {
+		return "<h1>Welcome to Health Check Demo, proceed to /health</h1>";
+	}
+
 	@GetMapping("health")
 	public String health_status() {
-		return "status is ok";
+		return "<h1>status is ok</h1>";
 	}
 
 }
