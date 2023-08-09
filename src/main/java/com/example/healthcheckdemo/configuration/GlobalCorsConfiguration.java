@@ -11,7 +11,7 @@ public class GlobalCorsConfiguration {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.addAllowedOrigin("https://d1mhiwxsb4ji6x.cloudfront.net");
+        corsConfiguration.addAllowedOrigin("http://d1mhiwxsb4ji6x.cloudfront.net");
         corsConfiguration.addAllowedMethod("*");
         corsConfiguration.addAllowedHeader("*");
 
