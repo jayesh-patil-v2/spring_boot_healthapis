@@ -1,14 +1,24 @@
 package com.example.healthcheckdemo.configuration;
 
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
-public class Config implements WebMvcConfigurer {
-	@Override
-	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**")
-		.allowedOrigins("http://localhost:3000")
-		.allowedMethods("GET", "POST", "PUT","DELETE");
+@Configuration
+public class Config {
+
+	@Bean
+	public CorsFilter corsFilter() {
+		CorsConfiguration corsConfig = new CorsConfiguration();
+		corsConfig.addAllowedOrigin("http://172.16.10.116:3000"); // http://d1mhiwxsb4ji6x.cloudfront.net/ 172.16.12.109
+		corsConfig.addAllowedHeader("*");
+		corsConfig.addAllowedMethod("*");
+
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", corsConfig);
+
+		return new CorsFilter(source);
 	}
-
 }
