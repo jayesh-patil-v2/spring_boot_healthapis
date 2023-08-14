@@ -8,12 +8,12 @@ public class HealthController {
 	
 	@GetMapping("/")
 	public String home() {
-		return "<h1>Welcome to Health Check Demo, proceed to /health</h1>";
+		return "Welcome to Health Check Demo, proceed to /health";
 	}
 
 	@GetMapping("health")
 	public String health_status() {
-		return "<h1>status is ok</h1>";
+		return "status 200: OK";
 	}
 
 }
